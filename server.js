@@ -9,14 +9,14 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-const cors = require('cors');
+import cors from'cors';
 
 const port = process.env.PORT || 5000;
 
 connectDB(process.env.MONGO_URI);
-app.use(cors());
-const app = express();
 
+const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
